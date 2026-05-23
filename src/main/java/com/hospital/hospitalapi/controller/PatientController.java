@@ -2,11 +2,9 @@ package com.hospital.hospitalapi.controller;
 
 import com.hospital.hospitalapi.model.Patient;
 
-import com.hospital.hospitalapi.repository.PatientRepository;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 import java.util.List;
 
@@ -16,29 +14,24 @@ import java.util.List;
 
 public class PatientController {
 
-    @Autowired
-
-    private PatientRepository repository;
-
-    // GET ALL PATIENTS
+    List<Patient> patientList =
+            new ArrayList<>();
 
     @GetMapping
 
     public List<Patient> getPatients() {
 
-        return repository.findAll();
+        return patientList;
     }
-
-    // ADD PATIENT
 
     @PostMapping
 
     public Patient addPatient(
-
             @RequestBody Patient patient
-
     ) {
 
-        return repository.save(patient);
+        patientList.add(patient);
+
+        return patient;
     }
 }
