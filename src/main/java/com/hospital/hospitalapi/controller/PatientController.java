@@ -18,6 +18,7 @@ public class PatientController {
 
     @GetMapping
     public List<Patient> getAllPatients() {
+
         return repo.findAll();
     }
 
@@ -25,6 +26,7 @@ public class PatientController {
     public Patient addPatient(
             @RequestBody Patient patient
     ) {
+
         return repo.save(patient);
     }
 }
