@@ -4,7 +4,6 @@ import com.hospital.hospitalapi.model.Patient;
 import com.hospital.hospitalapi.repository.PatientRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,7 +18,6 @@ public class PatientController {
 
     @GetMapping
     public List<Patient> getAllPatients() {
-
         return repo.findAll();
     }
 
@@ -27,19 +25,13 @@ public class PatientController {
     public Patient addPatient(
             @RequestBody Patient patient
     ) {
-
         return repo.save(patient);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deletePatient(
+    public void deletePatient(
             @PathVariable Long id
     ) {
-
         repo.deleteById(id);
-
-        return ResponseEntity.ok(
-                "Patient deleted successfully"
-        );
     }
 }
