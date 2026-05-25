@@ -1,7 +1,7 @@
-package com.example.hospital.controller;
+package com.hospital.hospitalapi.controller;
 
-import com.example.hospital.model.Patient;
-import com.example.hospital.repository.PatientRepository;
+import com.hospital.hospitalapi.model.Patient;
+import com.hospital.hospitalapi.repository.PatientRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,41 +10,36 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
-@CrossOrigin("*")
-
+@RequestMapping("/patients")
+@CrossOrigin(origins = "*")
 public class PatientController {
 
     @Autowired
-    private PatientRepository patientRepository;
+    private PatientRepository repo;
 
-    @GetMapping("/patients")
-    public List<Patient> getAllPatients(){
+    @GetMapping
+    public List<Patient> getAllPatients() {
 
-        return patientRepository.findAll();
+        return repo.findAll();
     }
 
-    @PostMapping("/patients")
+    @PostMapping
     public Patient addPatient(
             @RequestBody Patient patient
-    ){
+    ) {
 
-        return patientRepository.save(
-                patient
-        );
+        return repo.save(patient);
     }
 
-    @DeleteMapping("/patients/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deletePatient(
             @PathVariable Long id
-    ){
+    ) {
 
-        patientRepository.deleteById(
-                id
-        );
+        repo.deleteById(id);
 
         return ResponseEntity.ok(
-                "Deleted"
+                "Patient deleted successfully"
         );
     }
 }
