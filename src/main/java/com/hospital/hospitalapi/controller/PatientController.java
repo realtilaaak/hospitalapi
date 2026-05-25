@@ -1,32 +1,50 @@
-package com.hospital.hospitalapi.controller;
+package com.example.hospital.controller;
 
-import com.hospital.hospitalapi.model.Patient;
-import com.hospital.hospitalapi.repository.PatientRepository;
+import com.example.hospital.model.Patient;
+import com.example.hospital.repository.PatientRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/patients")
-@CrossOrigin(origins = "*")
+@RequestMapping
+@CrossOrigin("*")
+
 public class PatientController {
 
     @Autowired
-    private PatientRepository repo;
+    private PatientRepository patientRepository;
 
-    @GetMapping
-    public List<Patient> getAllPatients() {
+    @GetMapping("/patients")
+    public List<Patient> getAllPatients(){
 
-        return repo.findAll();
+        return patientRepository.findAll();
     }
 
-    @PostMapping
+    @PostMapping("/patients")
     public Patient addPatient(
             @RequestBody Patient patient
-    ) {
+    ){
 
-        return repo.save(patient);
+        return patientRepository.save(
+                patient
+        );
+    }
+
+    @DeleteMapping("/patients/{id}")
+    public ResponseEntity<String> deletePatient(
+            @PathVariable Long id
+    ){
+
+        patientRepository.deleteById(
+                id
+        );
+
+        return ResponseEntity.ok(
+                "Deleted"
+        );
     }
 }
