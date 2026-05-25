@@ -1,6 +1,5 @@
 package com.hospital.hospitalapi.model;
 
-
 import jakarta.persistence.*;
 
 @Entity
@@ -8,18 +7,19 @@ import jakarta.persistence.*;
 public class Patient {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy =
+            GenerationType.IDENTITY)
     private Long id;
 
     private String name;
 
-    private int age;
+    private Integer age;
 
-    private String contact;
+    private String disease;
 
-    private String blood;
+    private String roomNumber;
 
-    private String lastVisit;
+    private String visitDate;
 
     public Patient() {
     }
@@ -36,39 +36,49 @@ public class Patient {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(
+            String name
+    ) {
         this.name = name;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(
+            Integer age
+    ) {
         this.age = age;
     }
 
-    public String getContact() {
-        return contact;
+    public String getDisease() {
+        return disease;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    public void setDisease(
+            String disease
+    ) {
+        this.disease = disease;
     }
 
-    public String getBlood() {
-        return blood;
+    public String getRoomNumber() {
+        return roomNumber;
     }
 
-    public void setBlood(String blood) {
-        this.blood = blood;
+    public void setRoomNumber(
+            String roomNumber
+    ) {
+        this.roomNumber = roomNumber;
     }
 
-    public String getLastVisit() {
-        return lastVisit;
+    public String getVisitDate() {
+        return visitDate;
     }
 
-    public void setLastVisit(String lastVisit) {
-        this.lastVisit = lastVisit;
+    public void setVisitDate(
+            String visitDate
+    ) {
+        this.visitDate = visitDate;
     }
 }
