@@ -1,136 +1,73 @@
-package com.hospital.hospitalapi.model;
+package com.example.hospitalapi.model;
 
 import jakarta.persistence.*;
 
 @Entity
-
 @Table(name = "patients")
-
 public class Patient {
 
     @Id
-
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
 
     private String name;
 
     private int age;
 
-    private String disease;
+    private String contact;
 
-    private String patientType;
+    private String blood;
 
-    private String roomNumber;
+    private String lastVisit;
 
-    private int daysAdmitted;
-
-    private String medicine;
-
-    private double totalBill;
-
-    private String visitDate;
-
-    // GETTERS AND SETTERS
+    public Patient() {
+    }
 
     public Long getId() {
-
         return id;
     }
 
     public void setId(Long id) {
-
         this.id = id;
     }
 
     public String getName() {
-
         return name;
     }
 
     public void setName(String name) {
-
         this.name = name;
     }
 
     public int getAge() {
-
         return age;
     }
 
     public void setAge(int age) {
-
         this.age = age;
     }
 
-    public String getDisease() {
-
-        return disease;
+    public String getContact() {
+        return contact;
     }
 
-    public void setDisease(String disease) {
-
-        this.disease = disease;
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
-    public String getPatientType() {
-
-        return patientType;
+    public String getBlood() {
+        return blood;
     }
 
-    public void setPatientType(String patientType) {
-
-        this.patientType = patientType;
+    public void setBlood(String blood) {
+        this.blood = blood;
     }
 
-    public String getRoomNumber() {
-
-        return roomNumber;
+    public String getLastVisit() {
+        return lastVisit;
     }
 
-    public void setRoomNumber(String roomNumber) {
-
-        this.roomNumber = roomNumber;
-    }
-
-    public int getDaysAdmitted() {
-
-        return daysAdmitted;
-    }
-
-    public void setDaysAdmitted(int daysAdmitted) {
-
-        this.daysAdmitted = daysAdmitted;
-    }
-
-    public String getMedicine() {
-
-        return medicine;
-    }
-
-    public void setMedicine(String medicine) {
-
-        this.medicine = medicine;
-    }
-
-    public double getTotalBill() {
-
-        return totalBill;
-    }
-
-    public void setTotalBill(double totalBill) {
-
-        this.totalBill = totalBill;
-    }
-
-    public String getVisitDate() {
-
-        return visitDate;
-    }
-
-    public void setVisitDate(String visitDate) {
-
-        this.visitDate = visitDate;
+    public void setLastVisit(String lastVisit) {
+        this.lastVisit = lastVisit;
     }
 }

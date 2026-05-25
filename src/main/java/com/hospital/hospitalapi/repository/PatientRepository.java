@@ -1,10 +1,11 @@
-package com.hospital.hospitalapi.repository;
+package com.example.hospitalapi.repository;
 
-import com.hospital.hospitalapi.model.Patient;
-
+import com.example.hospitalapi.model.Patient;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PatientRepository
-        extends JpaRepository<Patient, Long> {
-
+        extends JpaRepository<
+        Patient,
+        Long
+        > {
 }
