@@ -1,7 +1,11 @@
-package com.hospital.hospitalapi;
+package com.hospital.hospitalapi.repository;
+
+import com.hospital.hospitalapi.model.Patient;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface PatientRepository
         extends JpaRepository<
         Patient,

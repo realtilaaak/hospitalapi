@@ -1,4 +1,4 @@
-package com.hospital.hospitalapi;
+package com.hospital.hospitalapi.model;
 
 
 import jakarta.persistence.*;

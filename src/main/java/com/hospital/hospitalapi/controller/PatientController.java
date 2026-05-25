@@ -1,4 +1,7 @@
-package com.hospital.hospitalapi;
+package com.hospital.hospitalapi.controller;
+
+import com.hospital.hospitalapi.model.Patient;
+import com.hospital.hospitalapi.repository.PatientRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +18,7 @@ public class PatientController {
 
     @GetMapping
     public List<Patient> getAllPatients() {
+
         return repo.findAll();
     }
 
@@ -22,22 +26,7 @@ public class PatientController {
     public Patient addPatient(
             @RequestBody Patient patient
     ) {
+
         return repo.save(patient);
-    }
-
-    @GetMapping("/{id}")
-    public Patient getPatientById(
-            @PathVariable Long id
-    ) {
-        return repo.findById(id)
-                .orElse(null);
-    }
-
-    @DeleteMapping("/{id}")
-    public String deletePatient(
-            @PathVariable Long id
-    ) {
-        repo.deleteById(id);
-        return "Deleted";
     }
 }
