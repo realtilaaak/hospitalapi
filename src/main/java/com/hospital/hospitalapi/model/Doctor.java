@@ -3,6 +3,7 @@ package com.hospital.hospitalapi.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "doctors")
 public class Doctor {
 
     @Id
@@ -37,20 +38,15 @@ public class Doctor {
         return specialization;
     }
 
-    public void setSpecialization(
-            String specialization
-    ) {
-        this.specialization =
-                specialization;
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
     }
 
     public String getPhone() {
         return phone;
     }
 
-    public void setPhone(
-            String phone
-    ) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -58,20 +54,15 @@ public class Doctor {
         return experience;
     }
 
-    public void setExperience(
-            String experience
-    ) {
-        this.experience =
-                experience;
+    public void setExperience(String experience) {
+        this.experience = experience;
     }
 
     public String getStatus() {
         return status;
     }
 
-    public void setStatus(
-            String status
-    ) {
+    public void setStatus(String status) {
         this.status = status;
     }
 }

@@ -27,4 +27,11 @@ public class DoctorController {
     ) {
         return repo.save(doctor);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteDoctor(
+            @PathVariable Long id
+    ) {
+        repo.deleteById(id);
+    }
 }
