@@ -6,7 +6,10 @@ import jakarta.persistence.*;
 public class Invoice {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(
+            strategy =
+                    GenerationType.IDENTITY
+    )
     private Long id;
 
     private String patient;
@@ -21,23 +24,29 @@ public class Invoice {
         return id;
     }
 
+    public void setId(
+            Long id
+    ) {
+        this.id = id;
+    }
+
     public String getPatient() {
         return patient;
     }
 
-    public void setPatient(String patient) {
+    public void setPatient(
+            String patient
+    ) {
         this.patient = patient;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(Double amount) {
+    public void setAmount(
+            Double amount
+    ) {
         this.amount = amount;
     }
 
@@ -45,7 +54,9 @@ public class Invoice {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(
+            String date
+    ) {
         this.date = date;
     }
 
@@ -53,7 +64,9 @@ public class Invoice {
         return payment;
     }
 
-    public void setPayment(String payment) {
+    public void setPayment(
+            String payment
+    ) {
         this.payment = payment;
     }
 }

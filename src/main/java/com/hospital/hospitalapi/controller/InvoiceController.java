@@ -18,20 +18,27 @@ public class InvoiceController {
 
     @GetMapping
     public List<Invoice> getAllInvoices() {
+
         return repo.findAll();
     }
 
     @PostMapping
-    public Invoice addInvoice(
+    public Invoice saveInvoice(
             @RequestBody Invoice invoice
     ) {
-        return repo.save(invoice);
+
+        return repo.save(
+                invoice
+        );
     }
 
     @DeleteMapping("/{id}")
     public void deleteInvoice(
             @PathVariable Long id
     ) {
-        repo.deleteById(id);
+
+        repo.deleteById(
+                id
+        );
     }
 }
