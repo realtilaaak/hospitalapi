@@ -6,14 +6,17 @@ import jakarta.persistence.*;
 public class Medicine {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(
+            strategy =
+                    GenerationType.IDENTITY
+    )
     private Long id;
 
     private String name;
     private String category;
-    private Integer stock;
-    private Double price;
-    private String expiryDate;
+    private String stock;
+    private String price;
+    private String expiry;
 
     public Medicine() {
     }
@@ -22,47 +25,59 @@ public class Medicine {
         return id;
     }
 
+    public void setId(
+            Long id
+    ) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
 
-    public Integer getStock() {
-        return stock;
-    }
-
-    public Double getPrice() {
-        return price;
+    public void setName(
+            String name
+    ) {
+        this.name = name;
     }
 
     public String getCategory() {
         return category;
     }
 
-    public String getExpiryDate() {
-        return expiryDate;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setStock(Integer stock) {
-        this.stock = stock;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public void setCategory(String category) {
+    public void setCategory(
+            String category
+    ) {
         this.category = category;
     }
 
-    public void setExpiryDate(String expiryDate) {
-        this.expiryDate = expiryDate;
+    public String getStock() {
+        return stock;
+    }
+
+    public void setStock(
+            String stock
+    ) {
+        this.stock = stock;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(
+            String price
+    ) {
+        this.price = price;
+    }
+
+    public String getExpiry() {
+        return expiry;
+    }
+
+    public void setExpiry(
+            String expiry
+    ) {
+        this.expiry = expiry;
     }
 }

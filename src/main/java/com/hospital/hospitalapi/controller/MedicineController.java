@@ -18,20 +18,27 @@ public class MedicineController {
 
     @GetMapping
     public List<Medicine> getAllMedicines() {
+
         return repo.findAll();
     }
 
     @PostMapping
-    public Medicine addMedicine(
+    public Medicine saveMedicine(
             @RequestBody Medicine medicine
     ) {
-        return repo.save(medicine);
+
+        return repo.save(
+                medicine
+        );
     }
 
     @DeleteMapping("/{id}")
     public void deleteMedicine(
             @PathVariable Long id
     ) {
-        repo.deleteById(id);
+
+        repo.deleteById(
+                id
+        );
     }
 }
