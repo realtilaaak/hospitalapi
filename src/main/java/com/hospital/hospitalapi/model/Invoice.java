@@ -1,72 +1,37 @@
-package com.hospital.hospitalapi.model;
+package com.hospital.hospitalapi.controller;
 
-import jakarta.persistence.*;
+import com.hospital.hospitalapi.model.Medicine;
+import com.hospital.hospitalapi.repository.MedicineRepository;
 
-@Entity
-public class Invoice {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-    @Id
-    @GeneratedValue(
-            strategy =
-                    GenerationType.IDENTITY
-    )
-    private Long id;
+import java.util.List;
 
-    private String patient;
-    private Double amount;
-    private String date;
-    private String payment;
+@RestController
+@RequestMapping("/medicines")
+@CrossOrigin(origins = "*")
+public class MedicineController {
 
-    public Invoice() {
+    @Autowired
+    private MedicineRepository repo;
+
+    @GetMapping
+    public List<Medicine> getAllMedicines() {
+        return repo.findAll();
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(
-            Long id
+    @PostMapping
+    public Medicine addMedicine(
+            @RequestBody Medicine medicine
     ) {
-        this.id = id;
+        return repo.save(medicine);
     }
 
-    public String getPatient() {
-        return patient;
-    }
-
-    public void setPatient(
-            String patient
+    @DeleteMapping("/{id}")
+    public void deleteMedicine(
+            @PathVariable Long id
     ) {
-        this.patient = patient;
-    }
-
-    public Double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(
-            Double amount
-    ) {
-        this.amount = amount;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(
-            String date
-    ) {
-        this.date = date;
-    }
-
-    public String getPayment() {
-        return payment;
-    }
-
-    public void setPayment(
-            String payment
-    ) {
-        this.payment = payment;
+        repo.deleteById(id);
     }
 }

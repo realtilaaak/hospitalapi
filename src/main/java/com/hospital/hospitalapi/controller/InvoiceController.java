@@ -17,13 +17,13 @@ public class InvoiceController {
     private InvoiceRepository repo;
 
     @GetMapping
-    public List<Invoice> getAllInvoices() {
+    public List<Invoice> getAll() {
 
         return repo.findAll();
     }
 
     @PostMapping
-    public Invoice saveInvoice(
+    public Invoice save(
             @RequestBody Invoice invoice
     ) {
 
@@ -33,7 +33,7 @@ public class InvoiceController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteInvoice(
+    public void delete(
             @PathVariable Long id
     ) {
 
