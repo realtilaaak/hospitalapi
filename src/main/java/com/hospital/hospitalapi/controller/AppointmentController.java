@@ -18,6 +18,7 @@ public class AppointmentController {
 
     @GetMapping
     public List<Appointment> getAllAppointments() {
+
         return repo.findAll();
     }
 
@@ -25,13 +26,19 @@ public class AppointmentController {
     public Appointment addAppointment(
             @RequestBody Appointment appointment
     ) {
-        return repo.save(appointment);
+
+        return repo.save(
+                appointment
+        );
     }
 
     @DeleteMapping("/{id}")
     public void deleteAppointment(
             @PathVariable Long id
     ) {
-        repo.deleteById(id);
+
+        repo.deleteById(
+                id
+        );
     }
 }

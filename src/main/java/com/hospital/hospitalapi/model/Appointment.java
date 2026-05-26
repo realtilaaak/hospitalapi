@@ -6,7 +6,10 @@ import jakarta.persistence.*;
 public class Appointment {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(
+            strategy =
+                    GenerationType.IDENTITY
+    )
     private Long id;
 
     private String patient;
@@ -15,13 +18,16 @@ public class Appointment {
     private String time;
     private String status;
 
-    public Appointment() {}
+    public Appointment() {
+    }
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(
+            Long id
+    ) {
         this.id = id;
     }
 
@@ -29,7 +35,9 @@ public class Appointment {
         return patient;
     }
 
-    public void setPatient(String patient) {
+    public void setPatient(
+            String patient
+    ) {
         this.patient = patient;
     }
 
@@ -37,7 +45,9 @@ public class Appointment {
         return doctor;
     }
 
-    public void setDoctor(String doctor) {
+    public void setDoctor(
+            String doctor
+    ) {
         this.doctor = doctor;
     }
 
@@ -45,7 +55,9 @@ public class Appointment {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(
+            String date
+    ) {
         this.date = date;
     }
 
@@ -53,7 +65,9 @@ public class Appointment {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(
+            String time
+    ) {
         this.time = time;
     }
 
@@ -61,7 +75,9 @@ public class Appointment {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(
+            String status
+    ) {
         this.status = status;
     }
 }
