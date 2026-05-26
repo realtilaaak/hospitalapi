@@ -1,13 +1,13 @@
 package com.hospital.hospitalapi.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 @Entity
 public class Doctor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     private String name;
     private String specialization;
@@ -15,13 +15,14 @@ public class Doctor {
     private String experience;
     private String status;
 
-    public Doctor() {}
+    public Doctor() {
+    }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -37,7 +38,9 @@ public class Doctor {
         return specialization;
     }
 
-    public void setSpecialization(String specialization) {
+    public void setSpecialization(
+            String specialization
+    ) {
         this.specialization = specialization;
     }
 
@@ -45,7 +48,9 @@ public class Doctor {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(
+            String phone
+    ) {
         this.phone = phone;
     }
 
@@ -53,7 +58,9 @@ public class Doctor {
         return experience;
     }
 
-    public void setExperience(String experience) {
+    public void setExperience(
+            String experience
+    ) {
         this.experience = experience;
     }
 
@@ -61,7 +68,9 @@ public class Doctor {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(
+            String status
+    ) {
         this.status = status;
     }
 }

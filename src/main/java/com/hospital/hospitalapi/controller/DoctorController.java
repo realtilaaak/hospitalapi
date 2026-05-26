@@ -30,7 +30,7 @@ public class DoctorController {
 
     @DeleteMapping("/{id}")
     public void deleteDoctor(
-            @PathVariable Long id
+            @PathVariable String id
     ) {
         repo.deleteById(id);
     }
